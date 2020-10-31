@@ -1,30 +1,78 @@
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
+import { SafeAreaView, View, FlatList, StyleSheet, StatusBar } from 'react-native';
+import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 
 const DATA = [
   {
     id: '1',
     title: 'Pan Fry Teriyaki Chicken',
+    detail: 'Hello Japan! Here is a recipe that is easy to make, and can go with any types of rice. My personal favorite is jasmine rice. It is a bit sticky, and has a jasmine flavor. You can add boiled carrots and some fresh cherry tomatoes on top of the beans. It will look colorful, and healthy as well.'
   },
   {
     id: '2',
     title: 'Boo Paht Pong Karee',
+    detail: 'What is Thailand without their crab curry? Spicy, juicy, and scrumptious, crabs are all time favorites, besides their traditional red and green curry. This stir fried crab curry has the deadly combination of fresh spices and coconut milk. So, the next time you are craving something spicy, and exotic, you can easily make this dish.'
   },
   {
     id: '3',
     title: 'Singapore Rice Noodles',
+    detail: 'Say hello to Malay Peninsula! This is a well loved dish, especially among the Chinese. If you and your family are spicy food lovers, then this is a perfect Saturday brunch for all of you to enjoy. You don’t have to add any other dishes to go with this.'
+  },
+  {
+    id: '4',
+    title: 'Dal Makhani',
+    detail: 'Dal Makhani, or Whole Black Lentil, is a very famous dish in India. Originated from North India, it has spread throughout the whole nation, and beyond. The main ingredients are Whole Black Lentil, Red Kidney Beans, butter oil, or ghee, and full fat cream. These are what make this food very rich. Dal Makhani goes best with naan or pita bread. But you can also eat it with white rice.'
+  },
+  {
+    id: '5',
+    title: 'Lamb Biryani',
+    detail: 'Biryani is a highly popular dish in South Asia. This dish is commonly served as the main meal in weddings, and on special occasions. The aromatic basmati rice is combined with lambs cooked in spices, and yogurt, making this an exotic cuisine. You can try it with chicken instead of lamb, or even substitute with shrimps. Vegetarians can omit all and can add their favorite veggies to make a vegetable biryani.'
+  },
+  {
+    id: '6',
+    title: 'Shish Kebabs',
+    detail: 'What is Middle East without Shish Kebabs? This beloved dish consists of chicken, or lamb, or beef chunks, all boneless, and is marinaded before hand. It is usually said not to marinade for more than 30 minutes. You can grill your personal choice vegetables to go with this exotic dish. The best way to enjoy Shish Kebabs are with naans.'
   },
 ];
 
-const Item = ({ title }) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
-  </View>
+const Item = ({ item }) => (
+  <Content>
+  <Card>
+    <CardItem>
+      <Left>
+        <Body>
+          <Text>{item.title}</Text>
+          <Text note>{item.detail}</Text>
+        </Body>
+      </Left>
+    </CardItem>
+    <CardItem cardBody>
+    </CardItem>
+    <CardItem>
+      <Left>
+        <Button transparent>
+          <Icon active name="thumbs-up" />
+          <Text>12 Likes</Text>
+        </Button>
+      </Left>
+      <Body>
+        <Button transparent>
+          <Icon active name="chatbubbles" />
+          <Text>4 Comments</Text>
+        </Button>
+      </Body>
+      <Right>
+        <Text>11h ago</Text>
+      </Right>
+    </CardItem>
+  </Card>
+</Content>
+
 );
 
 const App = () => {
   const renderItem = ({ item }) => (
-    <Item title={item.title} />
+    <Item item={item} />
   );
 
   return (
